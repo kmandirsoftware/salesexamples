@@ -15,7 +15,9 @@ export default class TopView extends JetView{
 			view:"toolbar",
 			css:"webix_dark", padding:{ left:8 },
 			elements:[
-				{ view:"label", label:this.app.config.name }
+				{ view:"button", type:"image" ,
+					image:"common/imgs/logo-icon.svg", width:50},
+					{ view:"label", type:""}
 				, logout
 /*wjet::Topbar*/
 			]
@@ -27,11 +29,12 @@ export default class TopView extends JetView{
 			template:"<span class='webix_icon #icon#'></span> #value# ",
 			data:[
 				{ value:"Sales", id:"start", icon:"wxi-plus-square" },
-				{ value:"Traffic", id:"traffic",  icon:"wxi-columns", data:[
+				{ value:"Traffic", id:"traffic",  icon:"wxi-plus-square", data:[
 					{ id:"programmanagement", value:"Program Management"},
-					{ id:"testsubviews", value:"Programs"}] },
+					{ id:"testsubviews", value:"Programs"},
+					{ id:"episodes", value:"Episodes"}] },
 				{ value:"Reporting",  id:"data",  icon:"wxi-pencil" },
-				{ value:"Settings",  id:"settings",  icon:"wxi-pencil" },
+				{ value:"Settings", untitledid:"settings",  icon:"wxi-pencil" },
 
 			]
 		};
@@ -49,6 +52,7 @@ export default class TopView extends JetView{
 
 		return ui;
 	}
+
 
 	init(){
 		this.use(plugins.Menu, "top:menu");
