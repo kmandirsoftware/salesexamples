@@ -1,3 +1,3 @@
-export const data = new webix.DataCollection({ 
+export const programdata = new webix.DataCollection({ 
 	url:"https://localhost:5000/ProgrammeDetails",
 	});
