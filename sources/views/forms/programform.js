@@ -5,7 +5,7 @@ export default class CustomersForm extends JetView{
 	config(){
 		return {
 			view:"form", paddingY:20, paddingX:30,
-			elementsConfig:{ labelWidth:100 },
+			elementsConfig:{ labelWidth:200 },
 			elements:[
 				{ type:"header", height:45, template:"Program Editor"},
 				{ view:"text", name: "shortName", label:"Program Short Name"},
