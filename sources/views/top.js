@@ -28,7 +28,12 @@ export default class TopView extends JetView{
 			width:280, layout:"y", select:true,
 			template:"<span class='webix_icon #icon#'></span> #value# ",
 			data:[
-				{ value:"Sales", id:"start", icon:"wxi-plus-square" },
+				{ value:"Sales", id:"start", icon:"wxi-plus-square" , data:[
+				   	{ id:"campaignsanddeals", value:"Campaigns \& Deals", data:[
+				   		{id:"campaignslistview", value:"Campaign List View"}] },
+				   	{ id:"clientsandproducts", value:"Clients \& Products"},
+				   	{ id:"inventory", value:"Inventory"},
+				   	{ id:"jobs", value:"Jobs"}] },
 				{ value:"Traffic", id:"traffic",  icon:"wxi-plus-square", data:[
 					{ id:"programmanagement", value:"Program Management"},
 					{ id:"testsubviews", value:"Programs"},
