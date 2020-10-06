@@ -5,11 +5,20 @@ export default class ProgramManagementView extends JetView{
 	config(){
 		return {
 			view:"datatable", 
-                        drag:true,
-                        dragColumn:true,
-                        select:true,
-                        scroll:"y",
+            id:"gridView",
+            drag:true,
+            dragColumn:true,
+            select:true,
+            scroll:"y",
 			css:"webix_shadow_medium",
+            scheme:{
+                $change:function(item){
+                    if (item.startDate > 2008)
+                        item.$css = "highlight";
+                    if (item.liveBroadcast == "false")
+                        item.$css = "highlight";
+                }
+            },
 			columns:[
                         { id:"edit", header:"", width:35, template:"{common.editIcon()}"},
                         { id:"delete", header:"", width:35, template:"{common.trashIcon()}"},
@@ -52,6 +61,8 @@ export default class ProgramManagementView extends JetView{
 	init(view){
                 //adding progress bar functionality to it
                 var myview = $$("gridView");
+               // var myview = $$("datatable");
+                console.log(myview);
                 webix.extend(myview, webix.ProgressBar);
                 myview.disable();
                 myview.showProgress({type:"icon"});

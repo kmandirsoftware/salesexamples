@@ -15,6 +15,13 @@ export default class ProgramManagementView extends JetView{
                                           <div class='details'>( info & editing )</div>`
                               },
                               {
+                                view:"button", type:"iconButton",
+                                icon:"plus", label:"Export All Fields", width:240, 
+                                click:function(){
+                                  webix.toExcel($$("gridView"));
+                                }
+                              },
+                              {
                                 view:"button", id:"button:add", type:"iconButton",
                                 icon:"plus", label:"Add Program", width:140,
                                 click:() => this.$$("multi").setValue("formView")
