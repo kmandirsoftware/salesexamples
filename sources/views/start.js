@@ -8,7 +8,7 @@ export default class StartView extends JetView{
 				/*wjet::Settings*/
 				  view:"chart",
 				  width:600,
-				  height:250,
+				  height:800,
 				  type:"stackedArea",
 				  alpha:0.7,
 				  xAxis:{

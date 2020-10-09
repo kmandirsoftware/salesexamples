@@ -14,6 +14,27 @@ export default class ProgramManagementView extends JetView{
                                 template:`<div class='header'>Programs</div>
                                           <div class='details'>( info & editing )</div>`
                               },
+                              { view:"search", align:"center", placeholder:"Search..", id:"search", width:300,
+                                on:{
+                                  onTimedKeyPress:function(){
+                                    var text = this.getValue().toLowerCase();
+                                    var table = $$("gridView");
+                                    var columns = table.config.columns;
+                                    table.filter(function(obj){
+                                    var foundone = false;
+                                    for (var i=0; i<columns.length; i++){
+                                      // first 2 columns are undefined
+                                      if( i>1 ){
+                                        if ( obj[columns[i].id].toString().toLowerCase().indexOf(text) !== -1) {
+                                          foundone = true;
+                                        }
+                                      }
+                                    }
+                                    return foundone;
+                                    })
+                                  }
+                                }
+                              },
                               {
                                 view:"button", type:"iconButton",
                                 icon:"plus", label:"Export All Fields", width:240, 
@@ -55,4 +76,11 @@ export default class ProgramManagementView extends JetView{
                 else
                         this.$$("multi").setValue("gridView");
         }
+//       $$("search").attachEvent("onTimedKeyPress",function(){ 
+//          var value = this.getValue().toLowerCase(); 
+//          $$("gridView").filter(function(obj){ 
+//            return obj.title.toLowerCase().indexOf(value)!=-1;
+//          })
+//        });
+
 }

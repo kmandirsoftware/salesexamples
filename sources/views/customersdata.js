@@ -8,8 +8,9 @@ export default class ProgramManagementView extends JetView{
             id:"gridView",
             drag:true,
             dragColumn:true,
+            resizeColumn:true,
             select:true,
-            scroll:"y",
+            //scroll:"y",
 			css:"webix_shadow_medium",
             scheme:{
                 $change:function(item){

@@ -39,7 +39,13 @@ export default class TopView extends JetView{
 					{ id:"testsubviews", value:"Programs"},
 					{ id:"episodes", value:"Episodes"}] },
 				{ value:"Reporting",  id:"data",  icon:"wxi-pencil" },
-				{ value:"Settings", untitledid:"settings",  icon:"wxi-pencil" },
+				{ value:"Settings", untitledid:"settings",  icon:"wxi-pencil", data:[
+					{ id:"locks", value:"Locks"},
+					{ id:"mail", value:"Mail"},
+					{ id:"roles", value:"Roles"},
+					{ id:"salesconfiguraion", value:"Sales Configuration"},
+					{ id:"setup", value:"Setup"}
+				] },
 
 			]
 		};
