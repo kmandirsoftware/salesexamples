@@ -9,6 +9,7 @@ export default class LoginView extends JetView{
             rows:[
                 { view:"text", name:"login", label:"User Name", labelPosition:"top" },
                 { view:"text", type:"password", name:"pass", label:"Password", labelPosition:"top" },
+                { view:"text", name:"db", label:"database", labelPosition:"top"},
                 { view:"button", value:"Login", click:() => this.Login(), hotkey:"enter" }
             ],
             rules:{

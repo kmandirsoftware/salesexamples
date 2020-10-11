@@ -63,7 +63,6 @@ export default class ProgramManagementView extends JetView{
                 //adding progress bar functionality to it
                 var myview = $$("gridView");
                // var myview = $$("datatable");
-                console.log(myview);
                 webix.extend(myview, webix.ProgressBar);
                 myview.disable();
                 myview.showProgress({type:"icon"});

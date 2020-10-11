@@ -1,6 +1,30 @@
 import {JetView} from "webix-jet";
 import CustomersData from "views/customersdata";
 import CustomersForm from "views/forms/programform"
+import {programdata} from "models/records";
+
+var data_value =   {
+  "glue": "or",
+  "rules": [
+    {
+      "field": "name",
+      "includes": [
+        "AGAINST"
+      ]
+    },
+    {
+      "glue": "and",
+      "rules": [
+        {
+          "field": "programmeCategory",
+          "includes": [
+            "TBA"
+            ]
+        }
+      ]
+    }
+  ]
+  };
 
 export default class ProgramManagementView extends JetView{
 	config(){
@@ -46,8 +70,27 @@ export default class ProgramManagementView extends JetView{
                                 view:"button", id:"button:add", type:"iconButton",
                                 icon:"plus", label:"Add Program", width:140,
                                 click:() => this.$$("multi").setValue("formView")
+                              },
+                              {
+                                view:"query",
+                                width:800,
+                                on: {
+                                    onChange() {
+                                    const filter = this.getFilterFunction();
+                                    // data-widget to filter data in
+                                    $$("gridView").filter(filter);
+                                    }
+                                },
+                                id:"query",
+                                type: "bar",
+                                data: programdata,
+                                fields: [
+                                { id:"name", value:"Name" , type: "text"},
+                                { id:"programmeCategory", value:"Program Category", type: "text"}
+                                ],
+                                value: data_value
                               }
-                           ]
+                           ]//end elements
                    },
                    {
                         fitBiggest:true,
