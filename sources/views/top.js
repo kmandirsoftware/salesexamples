@@ -49,7 +49,7 @@ export default class TopView extends JetView{
 					{ id:"setup", value:"Setup"}]
 				},
 				{ value: "Admin", id:"admin", icon:"wxi-user", data:[
-					{ id: "userconfig", value:"User Configuration" }]
+					{ id: "usermgr", value:"User Configuration" }]
 				}
 			];
 
@@ -78,7 +78,7 @@ export default class TopView extends JetView{
 							}
 						}
 					},
-					{ template: ""},
+//					{ template: ""},
 					{ $subview:true }
 					]
 				}
