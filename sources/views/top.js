@@ -64,7 +64,8 @@ export default class TopView extends JetView{
 				    { view: "label", label: "xGSales"},
 				    {},
 				    { view: "button", type: "icon", width: 45, css: "app_button", icon: "mdi mdi-comment",  badge:4},
-				    { view: "button", type: "icon", width: 45, css: "app_button", icon: "mdi mdi-bell",  badge:10}
+				    { view: "button", type: "icon", width: 45, css: "app_button", icon: "mdi mdi-bell",  badge:10},
+				    logout
 				   ]
 				},
 				{ cols:[
