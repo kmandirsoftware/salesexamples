@@ -93,7 +93,10 @@ export default class ProgramManagementView extends JetView{
                                 },
                                 id:"query",
                              //   type: "bar",
-                                data: programdata,
+                                data: field =>
+                                   webix
+                                      .ajax(`http://localhost:3001/${field}/suggestion`)
+                                      .then(a => a.json()),
                                 fields: [
                                 { id:"name", value:"Name" , type: "text"},
                                 { id:"programmeCategory", value:"Program Category", type: "text"}
