@@ -71,8 +71,17 @@ export default class ProgramManagementView extends JetView{
                         myview.hideProgress();
                         myview.enable();
                 }, null, null, 1000)
+
+              const myquery = $$("query");
+              console.log(myquery);
+
+        $$("query")
+          .getState()
+          .$observe("value", v => {
+            $$("gridView").filter($$("query").getFilterFunction());
+           // $$("log").setValue(JSON.stringify(v, "", "\t"));
+          });
+
 	}
-
-
 
 }

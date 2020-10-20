@@ -70,28 +70,37 @@ export default class ProgramManagementView extends JetView{
                                 view:"button", id:"button:add", type:"iconButton",
                                 icon:"plus", label:"Add Program", width:140,
                                 click:() => this.$$("multi").setValue("formView")
-                              },
-                              {
+                              }
+                           ]//end elements
+                   },
+              {
+              cols: [
+                                                 {
                                 view:"query",
                                 width:800,
                                 on: {
                                     onChange() {
                                     const filter = this.getFilterFunction();
                                     // data-widget to filter data in
-                                    $$("gridView").filter(filter);
+                                      $$("gridView").filter(filter);
+                                    },
+                                    onInit(){
+                                    //  const initfilter = this.getFilterFunction();
+                                    //const myquery = $$("query");
+                                    //const mygrid = $$("gridView");
+                                    //console.log(mygrid);
                                     }
                                 },
                                 id:"query",
-                                type: "bar",
+                             //   type: "bar",
                                 data: programdata,
                                 fields: [
                                 { id:"name", value:"Name" , type: "text"},
                                 { id:"programmeCategory", value:"Program Category", type: "text"}
                                 ],
                                 value: data_value
-                              }
-                           ]//end elements
-                   },
+                              },
+
                    {
                         fitBiggest:true,
                         localId:"multi",
@@ -110,6 +119,8 @@ export default class ProgramManagementView extends JetView{
                         }
                    }
                 ]
+              }
+              ]
 	   };
 	}
         urlChange(){
@@ -125,5 +136,14 @@ export default class ProgramManagementView extends JetView{
 //            return obj.title.toLowerCase().indexOf(value)!=-1;
 //          })
 //        });
+/*    init(){
+          $$("query")
+          .getState()
+          .$observe("value", v => {
+            $$("gridView").filter($$("query").getFilterFunction());
+            $$("log").setValue(JSON.stringify(v, "", "\t"));
+          });
+
+   }*/
 
 }
