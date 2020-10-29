@@ -7,20 +7,9 @@ var data_value =   {
   "glue": "or",
   "rules": [
     {
-      "field": "name",
+      "field": "programmeCategory",
       "includes": [
-        "AGAINST"
-      ]
-    },
-    {
-      "glue": "and",
-      "rules": [
-        {
-          "field": "programmeCategory",
-          "includes": [
-            "TBA"
-            ]
-        }
+        "TBA"
       ]
     }
   ]
@@ -95,11 +84,13 @@ export default class ProgramManagementView extends JetView{
                              //   type: "bar",
                                 data: field =>
                                    webix
-                                      .ajax(`http://localhost:3001/${field}/suggestion`)
+                                      .ajax(`http://localhost:3001/api/data/programdetails/${field}/suggest`)
                                       .then(a => a.json()),
                                 fields: [
-                                { id:"name", value:"Name" , type: "text"},
-                                { id:"programmeCategory", value:"Program Category", type: "text"}
+                                { id:"startDate", value:"Start Date" , type: "date"},
+                                { id:"programmeCategory", value:"Program Category", type: "text"},
+                                { id:"duration", value:"Duration", type: "number" },
+                                { id:"programeType", value:"Program Type", type: "text" }
                                 ],
                                 value: data_value
                               },

@@ -82,6 +82,6 @@ export default class UserConfigView extends JetView{
 					]
 				}
 	   			]
-			};
-		}
+		};
 	}
+}

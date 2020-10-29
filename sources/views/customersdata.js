@@ -1,15 +1,19 @@
 import {JetView} from "webix-jet";
-import {programdata} from "models/records";
+//import {programdata} from "models/records";
 
 export default class ProgramManagementView extends JetView{
 	config(){
-		return {
+        return {
 			view:"datatable", 
             id:"gridView",
             drag:true,
             dragColumn:true,
             resizeColumn:true,
             select:true,
+            url:"ProgrammeDetails",
+            loadahead:50,
+            datafetch:100,
+            //footer:true,
             //scroll:"y",
 			css:"webix_shadow_medium",
             scheme:{
@@ -21,8 +25,8 @@ export default class ProgramManagementView extends JetView{
                 }
             },
 			columns:[
-                        { id:"edit", header:"", width:35, template:"{common.editIcon()}"},
-                        { id:"delete", header:"", width:35, template:"{common.trashIcon()}"},
+                    { id:"edit", header:"", width:35, template:"{common.editIcon()}"},
+                    { id:"delete", header:"", width:35, template:"{common.trashIcon()}"},
                 	{ id:"name",  header:["Name", {content:"textFilter"}] , sort:"string", minWidth:250}, 
                 	{ id:"shortName",  header:["Short Name", {content:"textFilter"}] ,  sort:"string", minWidth:200}, 
                 	{ id:"description", header:["Description",{content:"textFilter"}],fillspace:true, sort:"string", minWidth:250 },
@@ -47,7 +51,7 @@ export default class ProgramManagementView extends JetView{
                                         ok:"Yes", cancel:"Cancel",
                                         callback:(res) => {
                                                 if(res){
-                                                        programdata.remove(id.row);
+                                                        //programdata.remove(id.row);
                                                 }
                                         }
                                    });
@@ -56,7 +60,6 @@ export default class ProgramManagementView extends JetView{
                                         this.show("programmanagement?id="+id.row)
                                 }
                         }
-
 		};
 	}
 	init(view){
@@ -67,7 +70,8 @@ export default class ProgramManagementView extends JetView{
                 myview.disable();
                 myview.showProgress({type:"icon"});
                 webix.delay(function(){
-	               view.sync(programdata);
+	               //view.sync(programdata);
+                // myview.load("ProgrammeDetails");  
                         myview.hideProgress();
                         myview.enable();
                 }, null, null, 1000)
